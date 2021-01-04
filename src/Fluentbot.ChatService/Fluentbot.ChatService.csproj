@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>dotnet-Fluentbot.ChatService-E57CB41D-88FE-4619-BEB8-6D2674C3D0F0</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+        <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.1.1" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="7.1.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+        <PackageReference Include="Oakton.AspNetCore" Version="3.0.0" />
+        <PackageReference Include="TwitchLib" Version="3.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Fluentbot.Contracts\Fluentbot.Contracts.csproj" />
+    </ItemGroup>
+</Project>
