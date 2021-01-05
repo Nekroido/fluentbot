@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Fluentbot.Contracts.Messages.Chat;
 using Fluentbot.Contracts.Messages.Stream;
 using MassTransit;
 using Microsoft.Extensions.Hosting;
@@ -52,6 +53,7 @@ namespace Fluentbot.ChatService.Twitch
 
         private void SubscribeToTopics()
         {
+            // Subscribe to stream up/down topics
             foreach (var channel in _config.CurrentValue.EnabledChannels)
                 _client.ListenToVideoPlayback(channel);
         }
@@ -67,6 +69,9 @@ namespace Fluentbot.ChatService.Twitch
 
             _client.OnStreamUp += async (s, e) => await _bus.Publish(_mapper.Map<StreamStarted>(e));
             _client.OnStreamDown += async (s, e) => await _bus.Publish(_mapper.Map<StreamEnded>(e));
+
+            _client.OnUnban += async (s, e) => await _bus.Publish(_mapper.Map<UserUnbanned>(e));
+            _client.OnUntimeout += async (s, e) => await _bus.Publish(_mapper.Map<UserUnmuted>(e));
 
             _client.OnRaidGo += async (s, e) => await _bus.Publish(_mapper.Map<RaidReceived>(e));
         }

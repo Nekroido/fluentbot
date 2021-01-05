@@ -149,6 +149,12 @@ namespace Fluentbot.ChatService.Twitch
             _client.OnHostingStopped += async (s, e) => await _bus.Publish(_mapper.Map<HostingStopped>(e));
 
             _client.OnBeingHosted += async (s, e) => await _bus.Publish(_mapper.Map<HostingReceived>(e));
+            
+            _client.OnUserJoined += async (s, e) => await _bus.Publish(_mapper.Map<UserJoined>(e));
+            _client.OnUserLeft += async (s, e) => await _bus.Publish(_mapper.Map<UserLeft>(e));
+            
+            _client.OnUserBanned += async (s, e) => await _bus.Publish(_mapper.Map<UserBanned>(e));
+            _client.OnUserTimedout += async (s, e) => await _bus.Publish(_mapper.Map<UserMuted>(e));
         }
     }
 }
