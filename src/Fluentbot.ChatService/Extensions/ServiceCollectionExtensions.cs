@@ -1,5 +1,6 @@
 using System;
 using AutoMapper;
+using Fluentbot.ChatService.Discord;
 using Fluentbot.ChatService.Twitch;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +22,14 @@ namespace Fluentbot.ChatService.Extensions
 
             var configurator = new TwitchServiceCollectionConfigurator(services);
             configure?.Invoke(configurator);
+
+            return services;
+        }
+
+        public static IServiceCollection UsingDiscord(this IServiceCollection services)
+        {
+            services.AddAutoMapper<DiscordMappingProfile>();
+            services.AddHostedService<DiscordHostedService>();
 
             return services;
         }

@@ -21,19 +21,19 @@ namespace Fluentbot.ChatService
                 .ConfigureServices((_, services) =>
                 {
                     services.AddOptions();
-                    services.Configure<TwitchCredentials>(_.Configuration.GetSection("twitch"));
-                    services.Configure<TwitchSection>(_.Configuration.GetSection("Services:Twitch"));
 
                     services.AddMassTransit(mt =>
                     {
-                        mt.UsingRabbitMq((context, configurator) =>
-                        {
-                            configurator.ConfigureEndpoints(context);
-                        });
+                        mt.UsingRabbitMq((context, configurator) => { configurator.ConfigureEndpoints(context); });
                         mt.AddServiceClient();
                     });
 
+                    services.Configure<TwitchCredentials>(_.Configuration.GetSection("twitch"));
+                    services.Configure<TwitchSection>(_.Configuration.GetSection("Services:Twitch"));
                     services.UsingTwitch();
+
+                    services.Configure<DiscordCredentials>(_.Configuration.GetSection("discord"));
+                    services.UsingDiscord();
 
                     services.AddHostedService<MassTransitHostedService>();
                 })
