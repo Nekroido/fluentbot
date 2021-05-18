@@ -7,6 +7,8 @@ namespace Fluentbot.PluginSDK.Models
     {
         ChatPlatform Platform { get; }
         
+        IGuild Guild { get; }
+        
         IChannel Channel { get; }
 
         IEnumerable<IChannel> AllChannels { get; }

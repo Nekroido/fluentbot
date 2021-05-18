@@ -12,6 +12,8 @@ namespace Fluentbot.PluginSDK.Models
         Uri IconUrl { get; }
 
         string Description { get; }
+        
+        IEnumerable<string> Tags { get; }
 
         IEnumerable<IStreamGamePlatform> GamePlatforms { get; }
     }

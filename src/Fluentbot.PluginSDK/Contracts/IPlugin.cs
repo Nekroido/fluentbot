@@ -14,6 +14,6 @@ namespace Fluentbot.PluginSDK.Contracts
         
         Version Version { get; }
         
-        IEnumerable<IAccessPermission> RequiredPermissions { get; }
+        IEnumerable<IAccessScope> Scopes { get; }
     }
 }
