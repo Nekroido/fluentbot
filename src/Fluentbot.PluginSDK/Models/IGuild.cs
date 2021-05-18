@@ -1,4 +1,6 @@
-﻿namespace Fluentbot.PluginSDK.Models
+﻿using System;
+
+namespace Fluentbot.PluginSDK.Models
 {
     public interface IGuild
     {
@@ -7,5 +9,7 @@
         string Name { get; }
         
         string Description { get; }
+        
+        Uri IconUrl { get; }
     }
 }

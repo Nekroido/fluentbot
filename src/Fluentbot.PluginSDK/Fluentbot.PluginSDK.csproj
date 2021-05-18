@@ -2,6 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Fluentbot.PluginSDK</Title>
+        <Authors>Nekroido</Authors>
+        <Description>Plugin SDK for Fluentbot.</Description>
+        <PackageProjectUrl>https://github.com/Nekroido/fluentbot</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/Nekroido/fluentbot/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/Nekroido/fluentbot</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
