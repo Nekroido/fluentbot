@@ -11,8 +11,10 @@ namespace Fluentbot.PluginSDK.Models
         
         IChannel Channel { get; }
 
+        // TODO: To consider
         IEnumerable<IChannel> AllChannels { get; }
 
+        // TODO: To consider
         IEnumerable<IUser> Chatters { get; }
     }
 }
