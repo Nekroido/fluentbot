@@ -5,6 +5,6 @@ namespace Fluentbot.PluginSDK.Contracts
 {
     public interface IContextEnricher : IDefinesScopes
     {
-        Task<IContext> Execute(IContext context, params string[] args);
+        Task<IActionContext> Execute(IActionContext context, params string[] args);
     }
 }

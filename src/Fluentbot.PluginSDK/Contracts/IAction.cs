@@ -5,6 +5,6 @@ namespace Fluentbot.PluginSDK.Contracts
 {
     public interface IAction : IDefinesScopes
     {
-        Task Execute(IContext context, params string[] args);
+        Task Execute(IActionContext context, params string[] args);
     }
 }

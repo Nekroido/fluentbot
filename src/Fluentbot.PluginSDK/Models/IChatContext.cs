@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Fluentbot.PluginSDK.Flags;
+using Fluentbot.PluginSDK.Services;
 
 namespace Fluentbot.PluginSDK.Models
 {
@@ -16,5 +17,7 @@ namespace Fluentbot.PluginSDK.Models
 
         // TODO: To consider
         IEnumerable<IUser> Chatters { get; }
+        
+        IChatService ChatServiceInstance { get; }
     }
 }
